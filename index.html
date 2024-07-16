@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metin-Görüntü Üretici</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            width: 70%;
+            padding: 10px;
+            margin-right: 10px;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        #result {
+            margin-top: 20px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Metin-Görüntü Üretici</h1>
+    <form action="/generate" method="post">
+        <input type="text" name="text" placeholder="Görüntü oluşturmak için metin girin" required>
+        <input type="submit" value="Oluştur">
+    </form>
+    <div id="result">
+        {% if image_path %}
+            <h2>Oluşturulan Görüntü:</h2>
+            <img src="{{ image_path }}" alt="Oluşturulan Görüntü">
+        {% endif %}
+    </div>
+</body>
+</html>
